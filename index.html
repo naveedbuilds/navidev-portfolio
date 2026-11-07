@@ -4,166 +4,706 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Naveed | Web Developer</title>
+
+  <meta name="description" content="Naveed Islam - Computer Science student and aspiring web developer. Explore my skills, education and projects.">
+
+  <title>Naveed Islam | NAVIDEV</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --bg: #080d0b;
+      --surface: #101915;
+      --card: #121e18;
+      --green: #34d399;
+      --green-dark: #059669;
+      --white: #f0fdf4;
+      --muted: #a1b5a9;
+      --border: rgba(52, 211, 153, 0.15);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
       line-height: 1.7;
     }
 
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: 84%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
     header {
-      padding: 22px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 13, 11, 0.92);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 75px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #111c33;
+      gap: 20px;
     }
 
-    header h2 {
-      color: #38bdf8;
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 27px;
+      font-weight: 700;
+      color: var(--green);
+      text-decoration: none;
+      letter-spacing: -1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
     }
 
     nav a {
-      color: white;
+      color: var(--muted);
       text-decoration: none;
-      margin-left: 18px;
+      font-size: 14px;
+      transition: 0.3s;
     }
 
+    nav a:hover {
+      color: var(--green);
+    }
+
+    /* HERO */
+
     .hero {
-      min-height: 75vh;
-      padding: 100px 8%;
+      min-height: 650px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      background: var(--green-dark);
+      filter: blur(180px);
+      opacity: 0.18;
+      right: 0;
+      top: 80px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 780px;
+      padding: 100px 0;
+      animation: appear 1s ease;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 15px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      color: var(--green);
+      font-size: 13px;
+      margin-bottom: 25px;
+      background: rgba(52, 211, 153, 0.06);
     }
 
     .hero h1 {
-      font-size: clamp(36px, 7vw,  sixty);
-      font-size: clamp(36px, 7vw, 60px);
-      line-height: 1.2;
-      margin-bottom: 20px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.12;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
     }
 
     .hero h1 span {
-      color: #38bdf8;
+      color: var(--green);
     }
 
     .hero p {
-      max-width: 600px;
-      color: #cbd5e1;
-      margin-bottom: 25px;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
     .btn {
       display: inline-block;
-      width: fit-content;
-      padding: 12px 22px;
-      background: #0284c7;
-      color: white;
-      text-decoration: none;
+      padding: 13px 25px;
       border-radius: 8px;
+      background: var(--green);
+      color: #06120c;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
     }
+
+    .btn:hover {
+      background: #6ee7b7;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--green);
+      border: 1px solid var(--green);
+    }
+
+    .btn-outline:hover {
+      background: var(--green);
+      color: #06120c;
+    }
+
+    /* COMMON SECTIONS */
 
     section {
-      padding: 65px 8%;
+      padding: 90px 0;
+      scroll-margin-top: 75px;
     }
 
-    section h2 {
-      color: #38bdf8;
-      margin-bottom: 20px;
-      font-size: 30px;
+    .section-label {
+      color: var(--green);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
     }
 
-    .projects {
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(30px, 5vw, 43px);
+      margin-bottom: 35px;
+    }
+
+    .section-title span {
+      color: var(--green);
+    }
+
+    /* ABOUT */
+
+    .about-content {
+      max-width: 800px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .about-content p {
+      margin-bottom: 18px;
+    }
+
+    /* SKILLS */
+
+    .skills {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .skill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 25px;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateY(-5px);
+      border-color: var(--green);
+    }
+
+    .skill h3 {
+      color: var(--green);
+      font-size: 19px;
+      margin-bottom: 7px;
+    }
+
+    .skill p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* EDUCATION */
+
+    .education {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
     }
 
-    .project {
-      background: #1e293b;
-      padding: 24px;
+    .education-card {
+      padding: 28px;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    .education-card:hover {
+      border-color: var(--green);
+      transform: translateY(-5px);
+    }
+
+    .education-card .number {
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .education-card h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .education-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+    }
+
+    .project {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 28px;
+      border-radius: 13px;
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      border-color: var(--green);
+    }
+
+    .project .project-tag {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .project h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
     }
 
     .project p {
-      color: #cbd5e1;
-      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
-    footer {
+    /* CONTACT */
+
+    .contact-box {
       text-align: center;
-      padding: 25px;
-      background: #111c33;
-      color: #cbd5e1;
+      padding: 60px 25px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(
+        135deg,
+        #10251b,
+        #0b1510
+      );
+    }
+
+    .contact-box h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(30px, 5vw, 44px);
+      margin-bottom: 15px;
+    }
+
+    .contact-box h2 span {
+      color: var(--green);
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer span {
+      color: var(--green);
+    }
+
+    /* ANIMATION */
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+      .container {
+        width: 90%;
+      }
+
+      .navbar {
+        flex-direction: column;
+        padding: 15px 0;
+      }
+
+      nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 550px;
+      }
+
+      .hero-content {
+        padding: 75px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
+
 <body>
 
+  <!-- NAVIGATION -->
+
   <header>
-    <h2>NAVIDEV</h2>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="container navbar">
+
+      <a href="#home" class="logo">NAVIDEV.</a>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+    </div>
   </header>
 
-  <div class="hero">
-    <h1>Hello, I'm <span>Naveed</span></h1>
-    <p>
-      I'm learning web development and building
-      modern, responsive websites using HTML and CSS.
-    </p>
-    <a class="btn" href="#projects">View My Projects</a>
-  </div>
+  <!-- HERO SECTION -->
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I'm a beginner web developer passionate about
-      learning coding and creating useful websites.
-    </p>
-  </section>
+  <main>
 
-  <section id="projects">
-    <h2>My Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <h3>Portfolio Website</h3>
-        <p>My personal website project.</p>
-      </div>
-      <div class="project">
-        <h3>Business Website</h3>
-        <p>A practice website for a small business.</p>
-      </div>
-      <div class="project">
-        <h3>Landing Page</h3>
-        <p>A simple responsive landing page.</p>
-      </div>
-    </div>
-  </section>
+    <section class="hero container" id="home">
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Interested in working together?</p>
-    <p>Visit my GitHub profile:</p>
-    <a class="btn" href="https://github.com/naveedbuilds">
-      My GitHub
-    </a>
-  </section>
+      <div class="hero-content">
+
+        <div class="tag">
+          Computer Science Student | Aspiring Developer
+        </div>
+
+        <h1>
+          Hi, I'm <span>Naveed Islam.</span>
+          <br>
+          I Build My Future With Code.
+        </h1>
+
+        <p>
+          I'm a Computer Science student passionate about
+          technology, web development and software engineering.
+          I'm learning, creating and improving every day.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#projects" class="btn">
+            Explore My Work
+          </a>
+
+          <a href="#contact" class="btn btn-outline">
+            Contact Me
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ABOUT SECTION -->
+
+    <section id="about">
+      <div class="container">
+
+        <div class="section-label">Introduction</div>
+
+        <h2 class="section-title">
+          About <span>Me</span>
+        </h2>
+
+        <div class="about-content">
+
+          <p>
+            Hello! I'm Naveed Islam, a 2nd-year Intermediate
+            Computer Science student with an interest in
+            technology and programming.
+          </p>
+
+          <p>
+            I have completed a Diploma in Information Technology
+            (DIT), and my certificate is currently pending.
+            I'm also learning web development and working
+            on improving my coding skills.
+          </p>
+
+          <p>
+            My ambition is to pursue Software Engineering
+            and become a professional software engineer.
+            I believe in continuous learning, creativity
+            and building useful digital experiences.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+
+    <section id="skills">
+      <div class="container">
+
+        <div class="section-label">What I Learn</div>
+
+        <h2 class="section-title">
+          My <span>Skills</span>
+        </h2>
+
+        <div class="skills">
+
+          <div class="skill">
+            <h3>HTML</h3>
+            <p>Learning to build structured web pages.</p>
+          </div>
+
+          <div class="skill">
+            <h3>CSS</h3>
+            <p>Learning styling and responsive layouts.</p>
+          </div>
+
+          <div class="skill">
+            <h3>Web Design</h3>
+            <p>Practicing clean and user-friendly designs.</p>
+          </div>
+
+          <div class="skill">
+            <h3>IT Fundamentals</h3>
+            <p>Knowledge gained through IT studies.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+
+    <section id="education">
+      <div class="container">
+
+        <div class="section-label">My Learning Journey</div>
+
+        <h2 class="section-title">
+          My <span>Education</span>
+        </h2>
+
+        <div class="education">
+
+          <div class="education-card">
+            <div class="number">01 / CURRENT</div>
+            <h3>Intermediate in Computer Science</h3>
+            <p>2nd Year - Currently Studying</p>
+          </div>
+
+          <div class="education-card">
+            <div class="number">02 / COMPLETED</div>
+            <h3>Diploma in Information Technology</h3>
+            <p>Course Completed - Certificate Pending</p>
+          </div>
+
+          <div class="education-card">
+            <div class="number">03 / FUTURE GOAL</div>
+            <h3>Software Engineering</h3>
+            <p>My planned field of higher education.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+
+    <section id="projects">
+      <div class="container">
+
+        <div class="section-label">My Practice Work</div>
+
+        <h2 class="section-title">
+          Practice <span>Projects</span>
+        </h2>
+
+        <div class="projects">
+
+          <div class="project">
+            <div class="project-tag">01 / HTML & CSS</div>
+            <h3>Personal Portfolio</h3>
+            <p>
+              My personal portfolio website to introduce
+              myself and showcase my learning journey.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-tag">02 / PRACTICE</div>
+            <h3>Business Website</h3>
+            <p>
+              A practice concept for a modern small
+              business website.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-tag">03 / PRACTICE</div>
+            <h3>Landing Page</h3>
+            <p>
+              A practice project focused on clean layouts
+              and responsive web design.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+
+    <section id="contact">
+      <div class="container">
+
+        <div class="contact-box">
+
+          <div class="section-label">Get In Touch</div>
+
+          <h2>
+            Let's Connect <span>Together.</span>
+          </h2>
+
+          <p>
+            Want to connect, discuss technology or see
+            my coding journey? Visit my GitHub profile.
+          </p>
+
+          <a
+            class="btn"
+            href="https://github.com/naveedbuilds"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit My GitHub
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
 
   <footer>
-    <p>© 2026 Naveed | NAVIDEV</p>
+    <div class="container">
+      <p>
+        © 2026 <span>Naveed Islam</span> | NAVIDEV.
+        Built with passion and code.
+      </p>
+    </div>
   </footer>
 
 </body>
